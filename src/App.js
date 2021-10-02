@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./styles.css";
 
-function App() {
+export default function App() {
+  const [posts, setPosts] = useState(null);
+  const apiURL = "https://jsonplaceholder.typicode.com/posts";
+
+  function fetchData() {
+    fetch(apiURL)
+      .then((resp) => resp.json())
+      .then((data) => {
+        setPosts(data);
+      });
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="posts">
+        {posts &&
+          posts.map((post, index) => (
+            <div className="element">
+              <h2>
+                {post.id}: {post.title}
+              </h2>
+              <h2 className="title"> </h2>
+              <p className="text"> Post: {post.body} </p>
+            </div>
+          ))}
+        <div className="btn-block">
+          <button className="btn" onClick={fetchData}>
+            Show All Posts
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;

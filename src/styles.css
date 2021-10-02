@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans Display", sans-serif;
+}
+.App {
+  text-align: center;
+}
+
+.posts {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.element {
+  width: 400px;
+  padding: 10px 20px;
+  margin: 15px 20px;
+  background: rgba(199, 184, 184, 0.932);
+  border: 2px solid black;
+}
+
+.text {
+  font-size: 1.5rem;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 25px;
+  background: rgb(209, 74, 74);
+  border: 0;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.btn:hover {
+  background: rgba(209, 74, 74, 0.8);
+}
+.btn:focus {
+  background: rgba(209, 74, 74, 0.7);
+}
